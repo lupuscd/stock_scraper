@@ -1,3 +1,5 @@
 venv/
 .DS_Store
 stockxl.xlsx
+__pycache__/
+ ~$stockxl.xlsx
