@@ -20,12 +20,11 @@ def stock_scr():
     stock_pe = soup.find('div', attrs = {'class' : 'inline-block shrink-0'})
     #numeric_pe_filter = filter(str.isdigit, stock_pe.text)
     numeric_pe_re = re.findall('\d+\.\d+', stock_pe.text)
-    float_numeric = float(numeric_pe_re[0])
-    numeric_pe = round(float_numeric,1)
-    stock_ey = (1/float_numeric) * 100
+    numeric_pe = float(numeric_pe_re[0])
+    stock_ey = round((1/numeric_pe) * 100, 1)
     stock_info = soup.find_all('div', attrs = {'class' : 'inline-block shrink-0 ml-9'})
 
-    info_list = [stock_name.text, stock_price.text, numeric_pe, str(stock_ey)]
+    info_list = [stock_name.text, stock_price.text, numeric_pe, stock_ey]
     for index, item in enumerate(stock_info):
         info = item.find('span')
         if index > 1:
