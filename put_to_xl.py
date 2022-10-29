@@ -16,11 +16,12 @@ def add_to_xl(list):
         sheet['A1'] = 'Name'
         sheet['B1'] = 'Price'
         sheet['C1'] = 'P/E'
-        sheet['D1'] = 'Market Cap'
-        sheet['E1'] = 'Dividend Yield'
+        sheet['D1'] = 'EY %'
+        sheet['E1'] = 'Market Cap'
+        sheet['F1'] = 'Dividend Yield'
         wb.save(f_name)
 
-    starting_row = 2
+    starting_row = sheet.max_row + 1
 
     for lst in list:
         starting_clmn = 1
