@@ -3,8 +3,9 @@ import openpyxl as p
 import os
 
 
-def add_to_xl(list):
+def add_to_xl(st_list):
     f_name = 'stockxl.xlsx'
+    s_list = sorted(st_list, key = lambda x: x[0])
 
     if os.path.isfile(f_name):
         wb = p.load_workbook(f_name)
@@ -23,7 +24,7 @@ def add_to_xl(list):
 
     starting_row = sheet.max_row + 1
 
-    for lst in list.sort():
+    for lst in s_list:
         starting_clmn = 1
         for item in lst:
             sheet.cell(row = starting_row, column = starting_clmn).value = item

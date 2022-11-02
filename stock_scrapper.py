@@ -35,11 +35,11 @@ def stock_scr():
 
         final_list.append(info_list)
 
-    contiue_answer = input('Do you want to add more tickers? y/n: ' )
+    continue_answer = input('Do you want to add more tickers? y/n: ' )
 
-    if contiue_answer.lower() == 'y':
+    if continue_answer.lower() == 'y':
         return stock_scr()
-    elif contiue_answer.lower() == 'n':
+    elif continue_answer.lower() == 'n':
         return put_to_xl.add_to_xl(final_list)
     else:
         print('Wrong input please enter y or n')
