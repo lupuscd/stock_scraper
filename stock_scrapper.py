@@ -35,13 +35,20 @@ def stock_scr():
 
         final_list.append(info_list)
 
-    continue_answer = input('Do you want to add more tickers? y/n: ' )
+    restart = 0
 
-    if continue_answer.lower() == 'y':
-        return stock_scr()
-    elif continue_answer.lower() == 'n':
-        return put_to_xl.add_to_xl(final_list)
-    else:
-        print('Wrong input please enter y or n')
+    while restart == 0:
+
+        continue_answer = input('Do you want to add more tickers? y/n: ' )
+
+        if continue_answer.lower() == 'y':
+            restart += 1
+            return stock_scr()
+        elif continue_answer.lower() == 'n':
+            restart += 1
+            return put_to_xl.add_to_xl(final_list)
+        else:
+            print('Wrong input please enter y or n')
+            restart = 0
 
 stock_scr()
